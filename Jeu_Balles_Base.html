@@ -24,7 +24,7 @@ h1 {
 var speed = 500;
 
 function principale() {
-    //Ajout d'un écouteur sur les touches
+    // Ajout d'un écouteur sur les touches
     window.addEventListener('keydown', deplacement, true);
     // Lance la fonction bouger() à intervalle de "speed"
     enemy = setInterval(bouger, speed);
@@ -32,7 +32,9 @@ function principale() {
 
 function bouger() {
     // Code à créer pour faire bouger la boule enemy
-    }
+    // Vous pouvez implémenter ici la logique de déplacement de la boule
+}
+
 function deplacement(evt) {
     var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
     var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
@@ -48,19 +50,19 @@ function deplacement(evt) {
         // Droite
         case 39:
             ballX += 15;
-    
+            // Ajoutez ici la limite de déplacement vers la droite
             document.getElementById('ball').setAttribute("cx", ballX);
             break;
         // Haut
         case 38:
             ballY -= 15;
-             
+            // Ajoutez ici la limite de déplacement vers le haut
             document.getElementById('ball').setAttribute("cy", ballY);
             break;
         // Bas
         case 40:
             ballY += 15;
-            
+            // Ajoutez ici la limite de déplacement vers le bas
             document.getElementById('ball').setAttribute("cy", ballY);
             break;
     }
