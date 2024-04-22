@@ -1,42 +1,22 @@
 <html>
 <head>
 <script>
-function affichage(){
-	alert("Tout es OK !");
+function controler(){
+if(document.getElementById('Control').checked){
+document.getElementById('image1').style.display="Block";
+
 }
-function cacher(){
-	document.getElementById('DuTexte').style.display="None";
-}
-function presenter(){
-	document.getElementById('DuTexte').style.display="Block";
+else{document.getElementById('image1').style.display="None";}
 }
 
-function controler(){
-	if(document.getElementById('Control').checked){
-			alert("Bouton option coché");
-		}
-	else{alert("Bouton option NON coché");}		
-}
-function controler(){
-	if(document.getElementById('Control').checked){
-	document.getElementById('image1').style.display="Block";
-	
 </script>
 </head>
-<body> 
-	<input type="checkbox" id=controller1" value=Image1">
-	<input type="checkbox" id=controller2" value=Image2">
-	<input type="checkbox" id=controller3" value=Image3">
-	
-<h1>Mes outils</h1>
+<body>
+<h1>Image</h1>
 <hr/>
-<h2>Boite de dialogue</h2>
-<button onclick="affichage()">Afficher</button>
-<hr/>
-<p id="DuTexte">Ma phrase de texte</p>
-<button onclick="presenter()">Presenter</button>
-<button onclick="cacher()">Cacher</button>
-<hr/>
-	
+<p>Option<input type="checkbox" id="Control"></p>
+<button onclick="controler()">Check</button><br/>
+<img id="image1" src="Image1.jpg" style="display:None">
+
 </body>
-	
+</html>
