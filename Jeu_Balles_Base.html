@@ -47,14 +47,14 @@ function deplacement(evt) {
 
 		// Haut 
                 case 38:
- 			ballX -= 15;
-                    	if(ballY>15){ballY>15;}
+ 			ballY -= 15;
+                    	if(ballY<15){ballY<15;}
 			document.getElementById('ball').setAttribute("cy", bally);
 			break;
 
 		// Bas 
                 case 40:
-			ballX += 15;
+			ballY += 15;
                     	if(ballY>15){ballY>15;}
 			document.getElementById('ball').setAttribute("cy", bally);
 			break;
