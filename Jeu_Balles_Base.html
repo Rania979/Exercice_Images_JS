@@ -32,6 +32,12 @@ function principale() {
 
 function bouger() {
     // Code à créer pour faire bouger la boule enemy
+    var ballX = parseInt(document.getElementById('ball2').getAttribute("cx"));
+   ballX -= 15;
+            if (ballX < 15) {
+                ballX = 15;
+            }
+            document.getElementById('ball2').setAttribute("cx", ballX); 
     // Vous pouvez implémenter ici la logique de déplacement de la boule
 }
 
@@ -66,18 +72,7 @@ function deplacement(evt) {
             // Ajoutez ici la limite de déplacement vers le bas
             document.getElementById('ball').setAttribute("cy", ballY);
             break;
-            // Créer une nouvelle balle bleue
-function createBlueBall(x, y) {
-    // Créer un nouvel élément de cercle SVG
-    var blueBall = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    // Définir les attributs de la balle bleue
-    blueBall.setAttribute("cx", x); // position horizontale
-    blueBall.setAttribute("cy", y); // position verticale
-    blueBall.setAttribute("r", "10"); // rayon
-    blueBall.setAttribute("fill", "blue"); // couleur bleue
-    // Ajouter la balle bleue au conteneur SVG
-    document.getElementById("svg-container").appendChild(blueBall);
-}
+           }
 
 // Appeler la fonction pour créer une balle bleue avec une position spécifique
 createBlueBall(100, 100); // Par exemple, à la position (100, 100)
@@ -90,6 +85,7 @@ createBlueBall(100, 100); // Par exemple, à la position (100, 100)
 <h1>Jeux Javascript</h1>
 <svg id="zonedejeux">
     <circle cx="450" cy="200" r="15" fill="tomato" id="ball" />
+    <circle cx="885" cy="200" r="15" fill="blue" id="ball2" />
 </svg>
 </body>
 </html>
