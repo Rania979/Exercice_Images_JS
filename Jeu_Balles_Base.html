@@ -39,7 +39,7 @@ function deplacement(evt) {
     var ballX = parseInt(document.getElementById('ball').getAttribute("cx"));
     var ballY = parseInt(document.getElementById('ball').getAttribute("cy"));
     switch (evt.keyCode) {
-        // Gauche
+        // Gauche 
         case 37:
             ballX -= 15;
             if (ballX < 15) {
@@ -53,6 +53,7 @@ function deplacement(evt) {
             // Ajoutez ici la limite de déplacement vers la droite
             document.getElementById('ball').setAttribute("cx", ballX);
             break;
+            
         // Haut
         case 38:
             ballY -= 15;
@@ -74,6 +75,6 @@ function deplacement(evt) {
 <svg id="zonedejeux">
     <circle cx="450" cy="200" r="15" fill="tomato" id="ball" />
 </svg>
-    <svg id="svg-container" width="400" height="400"></svg>
+    <svg  <circle cx="450" cy="400" r="15" fill="blue" id="ball" />
 </body>
 </html>
