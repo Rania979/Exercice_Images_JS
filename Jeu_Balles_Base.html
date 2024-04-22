@@ -66,6 +66,22 @@ function deplacement(evt) {
             // Ajoutez ici la limite de déplacement vers le bas
             document.getElementById('ball').setAttribute("cy", ballY);
             break;
+            // Créer une nouvelle balle bleue
+function createBlueBall(x, y) {
+    // Créer un nouvel élément de cercle SVG
+    var blueBall = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    // Définir les attributs de la balle bleue
+    blueBall.setAttribute("cx", x); // position horizontale
+    blueBall.setAttribute("cy", y); // position verticale
+    blueBall.setAttribute("r", "10"); // rayon
+    blueBall.setAttribute("fill", "blue"); // couleur bleue
+    // Ajouter la balle bleue au conteneur SVG
+    document.getElementById("svg-container").appendChild(blueBall);
+}
+
+// Appeler la fonction pour créer une balle bleue avec une position spécifique
+createBlueBall(100, 100); // Par exemple, à la position (100, 100)
+
     }
 }
 </script>
