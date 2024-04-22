@@ -8,16 +8,15 @@ function afficher(){
 	var saisie = parseInt(document.getElementById('V1').value);
 	var resultat = "";	
 		
-	 for (j=1;j<saisie;j++){
-		for(i=1;i<j+1;i++){
-			resulat +="*";
-	}
-		resultat +="</br>";
+	for (j = 1; j <= saisie; j++){
+        for (i = 1; i <= j; i++){
+                resultat += "*"; 
+        }
+        resultat += "</br>";
+    }
 	
 	document.getElementById('result').innerHTML = resultat;
-
 }
-	
 
 </script>
 
@@ -28,4 +27,4 @@ function afficher(){
 <button onclick="afficher()">Afficher</button>
 <div id="result"></div>
 </body>
-</html> 
+</html>
