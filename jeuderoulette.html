@@ -14,8 +14,9 @@
         }
     </style>
     <script>
-        var counterGain = 0;
+
         var gameEnd = false;
+        var maxLance = 0;
         function lancer() {
 
             if (maxLance > 0) {
@@ -56,7 +57,7 @@
             }
         }
 
-        var maxLance = 0;
+      
         function selectioner(id) {
             if (gameEnd) {
                 reinit();
