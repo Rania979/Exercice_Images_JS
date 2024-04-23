@@ -15,22 +15,23 @@
     </style>
     <script>
         var counterGain = 0;
-
+        var gameEnd = false;
         function lancer() {
             var gagne = 0;
+            var Val = Math.floor((Math.random() * 6) + 1);
+
             for (var i = 1; i <= 6; i++) {
                 if (document.getElementById('bullet-' + i).getAttribute('fill') === 'red') {
-                    var Val = Math.floor((Math.random() * 6) + 1);
-                    if (Val === i) {
-                        gagne = gagne + 1;
-                    } else {
-                        gagne = 0;
+                    if(i===Val){
+                        gagne=0;
                         break;
                     }
+
+                    gagne=gagne+1;
                 }
             }
 
-      
+            document.getElementById('bullet-' + Val).setAttribute('fill','blue');
 
             var valeurGain = "0";
             switch (gagne) {
@@ -46,16 +47,16 @@
             }
 
             document.getElementById('result').innerHTML = "Vous avez gagné " + valeurGain + "€";
-
-            for (var i = 1; i <= 6; i++) {
-                document.getElementById('bullet-' + i).setAttribute('fill', 'gray');
-            }
-            maxLance = 0;
+            gameEnd = true;
         }
 
         var maxLance = 0;
         function selectioner(id) {
-            document.getElementById('result').innerText="";
+            if (gameEnd) {
+                reinit();
+            }
+
+            document.getElementById('result').innerText = "";
             const element = document.getElementById('bullet-' + id);
             var oldAttr = element.getAttribute('fill');
             if (oldAttr === 'red') {
@@ -67,6 +68,15 @@
             } else {
                 document.getElementById('result').innerText = "3 selection max.";
             }
+        }
+
+        function reinit() {
+            for (var i = 1; i <= 6; i++) {
+                document.getElementById('bullet-' + i).setAttribute('fill', 'gray');
+            }
+
+            gameEnd = false;
+            maxLance = 0;
         }
 
     </script>
@@ -99,6 +109,7 @@
             <circle class="bullet-central" cx="100" cy="100" r="5" fill="black" stroke="black"></circle>
         </svg>
         <button id="playButton" onclick="lancer()">Play</button>
+        <button id="playButton" onclick="reinit()">Reinitialiser</button>
         <p id="result"></p>
     </div>
 
