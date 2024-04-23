@@ -17,37 +17,43 @@
         var counterGain = 0;
         var gameEnd = false;
         function lancer() {
-            var gagne = 0;
-            var Val = Math.floor((Math.random() * 6) + 1);
 
-            for (var i = 1; i <= 6; i++) {
-                if (document.getElementById('bullet-' + i).getAttribute('fill') === 'red') {
-                    if(i===Val){
-                        gagne=0;
-                        break;
+            if (maxLance > 0) {
+
+
+
+                var gagne = 0;
+                var Val = Math.floor((Math.random() * 6) + 1);
+
+                for (var i = 1; i <= 6; i++) {
+                    if (document.getElementById('bullet-' + i).getAttribute('fill') === 'red') {
+                        if (i === Val) {
+                            gagne = 0;
+                            break;
+                        }
+
+                        gagne = gagne + 1;
                     }
-
-                    gagne=gagne+1;
                 }
+
+                document.getElementById('bullet-' + Val).setAttribute('fill', 'blue');
+
+                var valeurGain = "0";
+                switch (gagne) {
+                    case 1:
+                        valeurGain = "10.000";
+                        break;
+                    case 2:
+                        valeurGain = "100.000";
+                        break;
+                    case 3:
+                        valeurGain = "1.000.000";
+                        break;
+                }
+
+                document.getElementById('result').innerHTML = "Vous avez gagné " + valeurGain + "€";
+                gameEnd = true;
             }
-
-            document.getElementById('bullet-' + Val).setAttribute('fill','blue');
-
-            var valeurGain = "0";
-            switch (gagne) {
-                case 1:
-                    valeurGain = "10.000";
-                    break;
-                case 2:
-                    valeurGain = "100.000";
-                    break;
-                case 3:
-                    valeurGain = "1.000.000";
-                    break;
-            }
-
-            document.getElementById('result').innerHTML = "Vous avez gagné " + valeurGain + "€";
-            gameEnd = true;
         }
 
         var maxLance = 0;
@@ -83,8 +89,6 @@
 </head>
 
 <body>
-
-
     <div class="container">
         <h1>Roulette Game</h1>
         <svg id="roulette" fill="#faebd8" stroke="black">
