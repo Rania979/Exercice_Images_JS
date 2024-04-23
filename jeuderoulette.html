@@ -13,7 +13,25 @@
             margin: 50px auto;
         }
     </style>
-    <script src="script.js"></script>
+    <script>
+   
+        var maxLance = 0;
+        function selectioner(id) {
+            document.getElementById('result').innerText="";
+            const element = document.getElementById('bullet-' + id);
+            var oldAttr = element.getAttribute('fill');
+            if (oldAttr === 'red') {
+                document.getElementById('bullet-' + id).setAttribute('fill', 'gray');
+                maxLance = maxLance - 1;
+            } else if (maxLance < 3) {
+                element.setAttribute('fill', 'red');
+                maxLance = maxLance + 1;
+            } else {
+                document.getElementById('result').innerText = "3 selection max.";
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -23,16 +41,26 @@
         <h1>Roulette Game</h1>
         <svg id="roulette" viewBox="0 0 100 100" fill="#faebd8" stroke="black">
             <circle class="chamber" cx="50" cy="50" r="40"></circle>
-            <circle class="bullet" cx="50" cy="25" r="10" fill="gray" stroke="black"></circle>
-            <circle class="bullet" cx="27" cy="40" r="10" fill="gray" stroke="black"></circle>
-            <circle class="bullet" cx="27" cy="63" r="10" fill="gray" stroke="black"></circle>
-            <circle class="bullet" cx="50" cy="75" r="10" fill="red" stroke="black"></circle>
+            <circle id="bullet-1" class="bullet" cx="50" cy="25" r="10" fill="gray" stroke="black"
+                onclick="selectioner(1)">
+            </circle>
+            <circle id="bullet-2" class="bullet" cx="27" cy="40" r="10" fill="gray" stroke="black"
+                onclick="selectioner(2)">
+            </circle>
+            <circle id="bullet-3" class="bullet" cx="27" cy="63" r="10" fill="gray" stroke="black"
+                onclick="selectioner(3)">
+            </circle>
+            <circle id="bullet-4" class="bullet" cx="50" cy="75" r="10" fill="gray" stroke="black"
+                onclick="selectioner(4)"></circle>
+            <circle id="bullet-5" class="bullet" cx="73" cy="63" r="10" fill="gray" stroke="black"
+                onclick="selectioner(5)"></circle>
+            <circle id="bullet-6" class="bullet" cx="73" cy="40" r="10" fill="gray" stroke="black"
+                onclick="selectioner(6)">
+            </circle>
 
-            <circle class="bullet" cx="73" cy="63" r="10" fill="red" stroke="black"></circle>
-            <circle class="bullet" cx="73" cy="40" r="10" fill="gray" stroke="black"></circle>
-          <circle class="bullet" cx="50" cy="50" r="5" fill="black" stroke="black"></circle>
+            <circle class="bullet-central" cx="50" cy="50" r="5" fill="black" stroke="black"></circle>
         </svg>
-        <button id="playButton">Play</button>
+        <button id="playButton" onclick="lancer()">Play</button>
         <p id="result"></p>
     </div>
 
